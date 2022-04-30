@@ -6,11 +6,11 @@ const io = require('socket.io')(server, {
     cors: {origin: "*"}
 });
 
-const port = 3000;
+const port = 8080;
 
-app.get('/', (req, res) => {
-    res.send('Hello')
-})
+// app.get('/', (req, res) => {
+//     res.send('Hello')
+// })
 
 
 io.on('connection', (socket) => {
