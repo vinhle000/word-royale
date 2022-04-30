@@ -6,8 +6,9 @@ const MessageWindow = ({messages}) => {
 
   return (
     <div> 
-      MessageWindowPlaceholder
-
+      {messages.map( (m, id) => {
+        return <div key={id}>{m}</div>
+      })}
     </div>
 
 
