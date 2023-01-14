@@ -7,6 +7,7 @@ const io = require('socket.io')(server, {
 });
 
 const port = 8080;
+const currentGameWord = 'trove'
 
 // app.get('/', (req, res) => {
 //     res.send('Hello')
@@ -15,6 +16,24 @@ const port = 8080;
 
 io.on('connection', (socket) => {
     console.log('a user connected');
+
+
+    //Join room 
+    socket.join('room1')
+
+    //Game Start event
+    // will need to One person to trigger the game start
+    // -Future, data will include settings options recieved from client
+    socket.on('GameStart', (data) => {
+        io.emit('Start', currentGameWord)
+    })
+
+    //Give word to client, client recieves
+    // -Test word is 'TROVE'
+    // - Store words in JSON for now
+
+
+
 
     socket.on('message', (message) => {
         console.log(message);
